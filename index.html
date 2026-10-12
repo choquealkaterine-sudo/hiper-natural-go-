@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hiper-Natural GO | Tienda Virtual de Productos Naturales</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===================== ENCABEZADO ===================== -->
+<header class="encabezado">
+  <div class="contenedor barra-nav">
+    <a href="#inicio" class="logo">
+      <img src="img/logo.png" alt="Logo de Hiper-Natural GO" class="logo-imagen" onerror="this.style.display='none'">
+      Hiper-Natural <span>GO</span>
+    </a>
+
+    <nav class="nav-principal" id="navPrincipal">
+      <a href="#inicio">Inicio</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="acciones-header">
+      <button class="btn-icono" id="btnMisPedidos" title="Mis pedidos" aria-label="Mis pedidos">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16l-1.4 12.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8L4 7Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
+      </button>
+
+      <button class="btn-icono" id="btnCuenta" title="Cuenta">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20c1.4-4 4.2-6 7.5-6s6.1 2 7.5 6"/></svg>
+        <span id="etiquetaCuenta">Ingresar</span>
+      </button>
+
+      <button class="btn-icono" id="btnPanelAdmin" title="Panel de administrador" aria-label="Panel de administrador">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <span id="etiquetaAdminHeader">Admin</span>
+      </button>
+
+      <button class="btn-icono btn-carrito" id="btnCarrito" title="Carrito">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M2.5 3h2.4l2 12.2a2 2 0 0 0 2 1.7h7.6a2 2 0 0 0 2-1.6L20.5 7H6"/></svg>
+        <span class="contador-carrito" id="contadorCarrito">0</span>
+      </button>
+
+      <button class="btn-menu" id="btnMenuMovil" aria-label="Abrir menú">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="inicio">
+  <div class="contenedor hero-grid">
+    <div class="hero-texto">
+      <p class="hero-ubicacion">Mercado Juan Pablo II</p>
+      <h1>La despensa natural del barrio, ahora en tu celular.</h1>
+      <p class="hero-descripcion">Frutos secos, hierbas, mieles y aceites elegidos puesto por puesto. Elige lo que necesitas, reserva o compra, y pasa a recogerlo o coordina la entrega por WhatsApp.</p>
+      <div class="hero-botones">
+        <a href="#catalogo" class="boton boton-primario">Ver catálogo</a>
+        <a href="https://wa.me/59170000000" target="_blank" rel="noopener" data-whatsapp class="boton boton-fantasma">Escribir por WhatsApp</a>
+      </div>
+      <div class="hero-datos">
+        <div><strong id="datoTotalProductos">--</strong><span>productos</span></div>
+        <div><strong>6</strong><span>categorías</span></div>
+        <div><strong>Hoy</strong><span>puesto abierto</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hoja hoja-1"></div>
+      <div class="hoja hoja-2"></div>
+      <div class="circulo-hero">
+        <img src="img/foto-tienda.jpg" alt="Foto del puesto Hiper-Natural GO en el Mercado Juan Pablo II" class="foto-hero" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DESTACADOS ===================== -->
+<section class="seccion destacados">
+  <div class="contenedor">
+    <div class="titulo-seccion">
+      <h2>Destacados de la semana</h2>
+      <p>Lo que más se está llevando la gente del mercado.</p>
+    </div>
+    <div class="carril-destacados" id="carrilDestacados">
+      <!-- Las tarjetas destacadas se generan con JavaScript -->
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CATÁLOGO ===================== -->
+<section class="seccion" id="catalogo">
+  <div class="contenedor">
+    <div class="titulo-seccion">
+      <h2>Catálogo completo</h2>
+      <p>Filtra por categoría o busca un producto puntual.</p>
+    </div>
+
+    <div class="barra-filtros">
+      <div class="buscador">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="campoBusqueda" placeholder="Buscar producto...">
+      </div>
+      <div class="chips-categorias" id="chipsCategorias">
+        <!-- Chips de categoría generados por JavaScript -->
+      </div>
+    </div>
+
+    <div class="grilla-productos" id="grillaProductos">
+      <!-- Tarjetas de producto generadas por JavaScript -->
+    </div>
+
+    <p class="mensaje-vacio oculto" id="mensajeSinResultados">No encontramos productos con ese filtro. Prueba con otra palabra o categoría.</p>
+  </div>
+</section>
+
+<!-- ===================== NOSOTROS ===================== -->
+<section class="seccion nosotros" id="nosotros">
+  <div class="contenedor nosotros-grid">
+    <div>
+      <h2>Un puesto del mercado, hecho tienda en línea</h2>
+      <p>Hiper-Natural GO nació dentro del Mercado Juan Pablo II para acercar los productos naturales del puesto a las personas que ya no siempre pueden pasar en persona. Seguimos comprando la mercadería de la misma manera, solo que ahora el catálogo te sigue a donde estés.</p>
+      <ul class="lista-check">
+        <li>Precios y disponibilidad siempre actualizados</li>
+        <li>Reserva tu pedido y recógelo cuando puedas</li>
+        <li>Atención directa por WhatsApp con el propietario</li>
+      </ul>
+    </div>
+    <div class="tarjeta-info">
+      <h3>¿Cómo funciona?</h3>
+      <ol>
+        <li>Explora el catálogo y agrega productos al carrito.</li>
+        <li>Confirma tu pedido como compra o como reserva.</li>
+        <li>Coordina el pago y la entrega por WhatsApp.</li>
+        <li>Revisa el estado desde "Mis pedidos".</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACTO ===================== -->
+<section class="seccion contacto" id="contacto">
+  <div class="contenedor contacto-grid">
+    <div>
+      <h2>Hablemos</h2>
+      <p>¿Tienes dudas sobre un producto, un pedido grande o una reserva? Escríbenos directamente.</p>
+      <div class="datos-contacto">
+        <a href="https://wa.me/59170000000" target="_blank" rel="noopener" data-whatsapp class="fila-contacto">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.1-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.3-1.8-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.1 0-.3 0-.4-.1-.1-.5-1.3-.7-1.7-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.6.6-.9 1.3-.9 2.1.1.9.4 1.8 1 2.6 1 1.5 2.2 2.7 3.7 3.6.9.5 1.7.8 2.5.9.8.1 1.6-.1 2.2-.6.4-.4.7-.9.8-1.4 0-.2.1-.5 0-.6-.1-.1-.2-.2-.4-.3Z"/></svg>
+          <span id="textoWhatsApp">WhatsApp: +59170000000</span>
+        </a>
+        <div class="fila-contacto">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-6.1 7-12A7 7 0 0 0 5 10c0 5.9 7 12 7 12Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+          <span>Mercado Juan Pablo II, puesto de productos naturales</span>
+        </div>
+        <div class="fila-contacto">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span>Lunes a sábado, 7:00 a 17:00</span>
+        </div>
+      </div>
+    </div>
+
+    <form class="formulario-contacto" id="formularioContacto">
+      <h3>Déjanos tu consulta</h3>
+      <label>Nombre
+        <input type="text" id="contactoNombre" required>
+      </label>
+      <label>Mensaje
+        <textarea id="contactoMensaje" rows="4" required></textarea>
+      </label>
+      <button type="submit" class="boton boton-primario">Enviar consulta</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== PIE DE PÁGINA ===================== -->
+<footer class="pie">
+  <div class="contenedor pie-grid">
+    <div>
+      <p class="logo logo-pie">
+        <img src="img/logo.png" alt="Logo de Hiper-Natural GO" class="logo-imagen" onerror="this.style.display='none'">
+        Hiper-Natural <span>GO</span>
+      </p>
+      <p>Tienda virtual de productos naturales del Mercado Juan Pablo II.</p>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <div>
+      <h4>Proyecto</h4>
+      <p>Proyecto de grado — Tienda Virtual de Productos Naturales.</p>
+      <a href="admin.html">Acceso administrador</a>
+    </div>
+  </div>
+  <p class="pie-derechos">© 2026 Hiper-Natural GO / Online. Proyecto educativo.</p>
+</footer>
+
+<!-- ===================== PANEL LATERAL: CARRITO ===================== -->
+<div class="fondo-oscuro" id="fondoOscuro"></div>
+
+<aside class="panel panel-carrito" id="panelCarrito">
+  <div class="panel-cabecera">
+    <h3>Tu carrito</h3>
+    <button class="btn-cerrar" data-cerrar-panel>&times;</button>
+  </div>
+  <div class="panel-cuerpo" id="listaCarrito">
+    <!-- Ítems del carrito generados por JavaScript -->
+  </div>
+  <div class="panel-pie">
+    <div class="fila-total">
+      <span>Total</span>
+      <strong id="totalCarrito">Bs. 0.00</strong>
+    </div>
+    <div class="opciones-pedido">
+      <label class="radio-pedido">
+        <input type="radio" name="tipoPedido" value="compra" checked> Comprar ahora
+      </label>
+      <label class="radio-pedido">
+        <input type="radio" name="tipoPedido" value="reserva"> Reservar producto
+      </label>
+    </div>
+
+    <label class="campo-metodo-pago">Método de pago
+      <select id="metodoPago">
+        <option value="Efectivo al recoger">Efectivo al recoger</option>
+        <option value="Pago por QR">Pago por QR (digital)</option>
+        <option value="Transferencia bancaria">Transferencia bancaria</option>
+      </select>
+    </label>
+
+    <!-- Se muestra solo si el método elegido es digital (QR o transferencia) -->
+    <div class="detalle-pago-digital oculto" id="detallePagoDigital">
+      <img src="img/qr-pago.jpg" alt="Código QR para pagos" class="imagen-qr" onerror="this.style.display='none'">
+      <p>Escanea el código QR o transfiere a la cuenta <strong id="pagoCuenta">0000-0000-0000</strong> (<span id="pagoBanco">Banco XXXX</span>) a nombre de <strong id="pagoTitular">Katerine</strong>. Después de pagar, envía el comprobante por WhatsApp para confirmar tu pedido.</p>
+    </div>
+
+    <button class="boton boton-primario boton-ancho" id="btnConfirmarPedido">Confirmar pedido</button>
+  </div>
+</aside>
+
+<!-- ===================== PANEL LATERAL: MIS PEDIDOS ===================== -->
+<aside class="panel panel-pedidos" id="panelPedidos">
+  <div class="panel-cabecera">
+    <h3>Mis pedidos</h3>
+    <button class="btn-cerrar" data-cerrar-panel>&times;</button>
+  </div>
+  <div class="panel-cuerpo" id="listaPedidos">
+    <!-- Pedidos generados por JavaScript -->
+  </div>
+</aside>
+
+<!-- ===================== PANEL LATERAL: ADMINISTRADOR ===================== -->
+<aside class="panel panel-admin" id="panelAdmin">
+  <div class="panel-cabecera">
+    <h3>Panel de administrador</h3>
+    <button class="btn-cerrar" data-cerrar-panel>&times;</button>
+  </div>
+
+  <div class="panel-cuerpo panel-cuerpo-admin">
+
+    <div class="acciones-admin oculto" id="accionesAdmin">
+      <span class="etiqueta-admin">Sesión: <strong id="nombreAdminSesion"></strong></span>
+      <button class="boton boton-fantasma boton-pequeno" id="btnSalirAdmin">Salir</button>
+    </div>
+
+    <!-- Login de administrador -->
+    <section id="seccionLoginAdmin">
+      <p>Ingresa con tu cuenta de administrador para configurar el catálogo y revisar los pedidos, todo desde esta misma página.</p>
+      <form id="formularioLoginAdmin" class="formulario-cuenta">
+        <label>Número de teléfono
+          <input type="tel" id="adminTelefono" required placeholder="Tu número de administrador">
+        </label>
+        <label>Contraseña
+          <input type="password" id="adminContrasena" required>
+        </label>
+        <button type="submit" class="boton boton-primario boton-ancho">Ingresar</button>
+      </form>
+    </section>
+
+    <!-- Contenido del panel (solo visible si la sesión es de administrador) -->
+    <section class="oculto" id="seccionPanelAdmin">
+
+      <div class="resumen-admin" id="resumenAdmin">
+        <!-- Tarjetas de resumen generadas por JavaScript -->
+      </div>
+
+      <div class="pestanas-admin">
+        <button class="pestana-admin activa" data-vista="productos">Productos</button>
+        <button class="pestana-admin" data-vista="pedidos">Pedidos</button>
+        <button class="pestana-admin" data-vista="nuevo">Agregar</button>
+        <button class="pestana-admin" data-vista="ajustes">Ajustes</button>
+      </div>
+
+      <div class="vista-admin" id="vistaProductos">
+        <div id="listaProductosAdmin" class="lista-productos-admin">
+          <!-- Tarjetas de producto editable generadas por JavaScript -->
+        </div>
+      </div>
+
+      <div class="vista-admin oculto" id="vistaPedidos">
+        <div id="listaPedidosAdmin" class="lista-pedidos-admin">
+          <!-- Pedidos generados por JavaScript -->
+        </div>
+      </div>
+
+      <div class="vista-admin oculto" id="vistaAjustes">
+        <!-- Formulario de ajustes generado por JavaScript (admin.js) -->
+      </div>
+
+      <div class="vista-admin oculto" id="vistaNuevo">
+        <form id="formularioNuevoProducto" class="formulario-producto-admin">
+          <label>Nombre del producto
+            <input type="text" id="nuevoNombre" required>
+          </label>
+          <label>Categoría
+            <input type="text" id="nuevoCategoria" required placeholder="Ej: Frutos secos y semillas">
+          </label>
+          <div class="fila-doble">
+            <label>Precio (Bs.)
+              <input type="number" id="nuevoPrecio" min="0" step="0.5" required>
+            </label>
+            <label>Stock inicial
+              <input type="number" id="nuevoStock" min="0" step="1" required>
+            </label>
+          </div>
+          <label>Emoji o ícono
+            <input type="text" id="nuevoEmoji" maxlength="4" placeholder="🌿" value="🌿">
+          </label>
+          <div class="subir-imagen">
+            <span class="etiqueta-subir">Foto del producto (opcional)</span>
+            <div class="fila-subir">
+              <div class="vista-previa-subida" id="vistaPreviaNuevo">Sin foto</div>
+              <label class="boton boton-fantasma boton-pequeno boton-subir">📷 Elegir foto
+                <input type="file" accept="image/*" id="archivoNuevoProducto" hidden>
+              </label>
+            </div>
+          </div>
+          <label>Descripción
+            <textarea id="nuevoDescripcion" rows="3" required></textarea>
+          </label>
+          <label>Forma de consumo
+            <textarea id="nuevoFormaConsumo" rows="2" required></textarea>
+          </label>
+          <label class="fila-checkbox">
+            <input type="checkbox" id="nuevoDestacado"> Mostrar como producto destacado
+          </label>
+          <button type="submit" class="boton boton-primario boton-ancho">Agregar producto al catálogo</button>
+        </form>
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+<!-- ===================== MODAL: DETALLE DE PRODUCTO ===================== -->
+<div class="modal" id="modalProducto">
+  <div class="modal-contenido modal-producto">
+    <button class="btn-cerrar" data-cerrar-modal>&times;</button>
+    <div class="detalle-producto" id="detalleProducto">
+      <!-- Contenido generado por JavaScript -->
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL: REGISTRO / INICIO DE SESIÓN ===================== -->
+<div class="modal" id="modalCuenta">
+  <div class="modal-contenido modal-cuenta">
+    <button class="btn-cerrar" data-cerrar-modal>&times;</button>
+
+    <div class="pestanas-cuenta">
+      <button class="pestana activa" data-pestana="ingresar">Ingresar</button>
+      <button class="pestana" data-pestana="registrar">Crear cuenta</button>
+    </div>
+
+    <form class="formulario-cuenta" id="formularioIngresar">
+      <h3>Ingresar</h3>
+      <label>Número de teléfono
+        <input type="tel" id="ingresarTelefono" required placeholder="Ej: 70000000">
+      </label>
+      <button type="submit" class="boton boton-primario boton-ancho">Ingresar</button>
+      <p class="ayuda-form">¿Aún no tienes cuenta? Usa la pestaña "Crear cuenta".</p>
+    </form>
+
+    <form class="formulario-cuenta oculto" id="formularioRegistrar">
+      <h3>Crear cuenta</h3>
+      <label>Nombre completo
+        <input type="text" id="registroNombre" required>
+      </label>
+      <label>Número de teléfono
+        <input type="tel" id="registroTelefono" required placeholder="Ej: 70000000">
+      </label>
+      <p class="nota-form">Tu cuenta se crea con la fecha de hoy como fecha de inicio de sesión.</p>
+      <button type="submit" class="boton boton-primario boton-ancho">Crear cuenta</button>
+    </form>
+  </div>
+</div>
+
+<!-- Contenedor de notificaciones tipo toast -->
+<div class="contenedor-toast" id="contenedorToast"></div>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script src="js/supabaseClient.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/app.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

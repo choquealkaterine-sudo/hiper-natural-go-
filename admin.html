@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel de administrador | Hiper-Natural GO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="cuerpo-admin">
+
+<!-- ===================== ENCABEZADO DEL PANEL ===================== -->
+<header class="encabezado-admin">
+  <div class="contenedor barra-admin">
+    <a href="index.html" class="logo">Hiper-Natural <span>GO</span></a>
+    <div class="acciones-admin oculto" id="accionesAdmin">
+      <span class="etiqueta-admin" id="nombreAdminSesion"></span>
+      <button class="boton boton-fantasma boton-pequeno" id="btnSalirAdmin">Salir</button>
+    </div>
+  </div>
+</header>
+
+<main class="contenedor panel-admin-contenido">
+
+  <!-- ===================== LOGIN DE ADMINISTRADOR ===================== -->
+  <section class="tarjeta-login-admin" id="seccionLoginAdmin">
+    <h1>Panel de administrador</h1>
+    <p>Ingresa con tu cuenta de administrador para configurar el catálogo y revisar los pedidos desde tu celular.</p>
+    <form id="formularioLoginAdmin" class="formulario-cuenta">
+      <label>Número de teléfono
+        <input type="tel" id="adminTelefono" required placeholder="Ej: 68762839">
+      </label>
+      <label>Contraseña
+        <input type="password" id="adminContrasena" required>
+      </label>
+      <button type="submit" class="boton boton-primario boton-ancho">Ingresar</button>
+    </form>
+    <p class="nota-form">Cuenta de administrador: teléfono <strong>68762839</strong>, contraseña <strong>samir123</strong>.</p>
+  </section>
+
+  <!-- ===================== CONTENIDO DEL PANEL (solo si es admin) ===================== -->
+  <section class="oculto" id="seccionPanelAdmin">
+
+    <!-- Resumen rápido -->
+    <div class="resumen-admin" id="resumenAdmin">
+      <!-- Tarjetas de resumen generadas por JavaScript -->
+    </div>
+
+    <!-- Pestañas del panel -->
+    <div class="pestanas-admin">
+      <button class="pestana-admin activa" data-vista="productos">Productos</button>
+      <button class="pestana-admin" data-vista="pedidos">Pedidos</button>
+      <button class="pestana-admin" data-vista="nuevo">Agregar producto</button>
+      <button class="pestana-admin" data-vista="ajustes">Ajustes</button>
+    </div>
+
+    <!-- Vista: lista de productos editable -->
+    <div class="vista-admin" id="vistaProductos">
+      <div id="listaProductosAdmin" class="lista-productos-admin">
+        <!-- Tarjetas de producto editable generadas por JavaScript -->
+      </div>
+    </div>
+
+    <!-- Vista: pedidos y reservas -->
+    <div class="vista-admin oculto" id="vistaPedidos">
+      <div id="listaPedidosAdmin" class="lista-pedidos-admin">
+        <!-- Pedidos generados por JavaScript -->
+      </div>
+    </div>
+
+    <!-- Vista: ajustes del negocio (generada por admin.js) -->
+    <div class="vista-admin oculto" id="vistaAjustes"></div>
+
+    <!-- Vista: agregar producto nuevo -->
+    <div class="vista-admin oculto" id="vistaNuevo">
+      <form id="formularioNuevoProducto" class="formulario-producto-admin">
+        <label>Nombre del producto
+          <input type="text" id="nuevoNombre" required>
+        </label>
+        <label>Categoría
+          <input type="text" id="nuevoCategoria" required placeholder="Ej: Frutos secos y semillas">
+        </label>
+        <div class="fila-doble">
+          <label>Precio (Bs.)
+            <input type="number" id="nuevoPrecio" min="0" step="0.5" required>
+          </label>
+          <label>Stock inicial
+            <input type="number" id="nuevoStock" min="0" step="1" required>
+          </label>
+        </div>
+        <label>Emoji o ícono
+          <input type="text" id="nuevoEmoji" maxlength="4" placeholder="🌿" value="🌿">
+        </label>
+        <div class="subir-imagen">
+          <span class="etiqueta-subir">Foto del producto (opcional)</span>
+          <div class="fila-subir">
+            <div class="vista-previa-subida" id="vistaPreviaNuevo">Sin foto</div>
+            <label class="boton boton-fantasma boton-pequeno boton-subir">📷 Elegir foto
+              <input type="file" accept="image/*" id="archivoNuevoProducto" hidden>
+            </label>
+        </div>
+        </div>
+        <label>Descripción
+          <textarea id="nuevoDescripcion" rows="3" required></textarea>
+        </label>
+        <label>Forma de consumo
+          <textarea id="nuevoFormaConsumo" rows="2" required></textarea>
+        </label>
+        <label class="fila-checkbox">
+          <input type="checkbox" id="nuevoDestacado"> Mostrar como producto destacado
+        </label>
+        <button type="submit" class="boton boton-primario boton-ancho">Agregar producto al catálogo</button>
+      </form>
+    </div>
+
+  </section>
+</main>
+
+<!-- Contenedor de notificaciones tipo toast (compartido con la tienda) -->
+<div class="contenedor-toast" id="contenedorToast"></div>
+
+<script src="js/supabaseClient.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
